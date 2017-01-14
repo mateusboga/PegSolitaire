@@ -11,6 +11,9 @@ var shad = new Image(); shad.src = "blackmarble/shadow.png";
 
 var s_peg = new Audio(); s_peg.src = "sound/peg.wav";
 
+var intro = "Move the pegs like checkers to leave only one in the end.";
+var intro2 = "Type some numbers ;)"
+
 var board1 = [
 	{ 2: {peg: false},3: {peg: false},4: {peg: false} },
 	{ 2: {peg: false},3: {peg: false},4: {peg: false} },
@@ -96,6 +99,11 @@ function draw(){
 		
 	drawBoard();
 	
+    ctx.fillStyle = "#aaa";
+    ctx.font = "Bold 15px Arial";
+    ctx.fillText(intro,20,20);
+    ctx.fillText(intro2,20,40);
+    
 	drawCursor();
 	
 }
@@ -232,6 +240,13 @@ $('#C').mouseup(function(e) {
 window.onkeydown = function (e){
 	key = e.keyCode ? e.keyCode : e.which;
 		switch(key){
+            case 32:
+            case 82: loadpegs(); break;
+            case 49: type = 1; loadpegs(); break;
+            case 50: type = 2; loadpegs(); break;
+            case 51: type = 3; loadpegs(); break;
+            case 52: type = 4; loadpegs(); break;
+            case 53: type = 5; loadpegs(); break;
 			default: console.log(key); break;
 		};
 }
