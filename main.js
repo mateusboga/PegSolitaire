@@ -76,7 +76,7 @@ window.onload=function(){
 }
 
 function res(){
-	C.width = $(window).width(); C.height = $(window).height(); ctx.imageSmoothingEnabled = false;
+	C.width = window.innerWidth; C.height = window.innerHeight; ctx.imageSmoothingEnabled = false;
 	Cw = C.width; Ch = C.height;
 }
 
@@ -85,7 +85,7 @@ window.setInterval(function(){
 	
 	draw();
 	
-	if( C.width != $(window).width() || C.height != $(window).height() ){ res(); }
+	if( C.width != window.innerWidth || C.height != window.innerHeight ){ res(); }
 },1000/60)
 
 function draw(){
