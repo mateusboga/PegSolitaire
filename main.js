@@ -10,6 +10,8 @@ var slot = new Image(); slot.src = "hole.png";
 var shad = new Image(); shad.src = "blackmarble/shadow.png";
 
 var s_peg = new Audio(); s_peg.src = "sound/peg.wav";
+var s_peg2 = new Audio(); s_peg2.src = "sound/peg2.wav";
+var s_toc = new Audio(); s_toc.src = "sound/toc.wav";
 
 var intro = "Move the pegs like checkers to leave only one in the end.";
 var intro2 = "Type some numbers ;)"
@@ -187,7 +189,7 @@ function click(){
 							select.x = i; select.y = j;
 							s_peg.curentTime = 0; s_peg.play();
 						}else{
-							select = {x:-1,y:-1};
+							select = {x:-1,y:-1}; s_peg2.play();
 						}
 					}else if( b.peg == false && select.x >= 0 && select.y >= 0 ){
 						b1 = board[select.x][select.y];
@@ -199,6 +201,7 @@ function click(){
 								board[x2][y2].peg = false;
 								select.x = i; select.y = j;
 							}
+                            s_toc.play();
 						}
 					}
 					break;
